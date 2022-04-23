@@ -1,5 +1,7 @@
 package pl.edu.wszib.springjpa.model;
 
+import org.hibernate.annotations.OnDelete;
+
 import javax.persistence.*;
 
 @Entity
