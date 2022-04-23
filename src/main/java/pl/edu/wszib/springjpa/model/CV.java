@@ -1,18 +1,30 @@
 package pl.edu.wszib.springjpa.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
 import java.time.Instant;
 import java.util.List;
-
+@Entity
+@Table
 public class CV {
-
+  @Id
+  @GeneratedValue
   private Integer id;
   private String imie;
   private String nazwisko;
   private Instant dataUrodzenia;
+  @ManyToOne
+  @JoinColumn
   private Adres adres;
+  @OneToMany(mappedBy = "cv")
   private List<Praca> doswiadczenie;
+  @OneToMany(mappedBy = "cv")
   private List<Kompetencja> kompetencje;
+  @CreationTimestamp
   private Instant createdAt;
+  @UpdateTimestamp
   private Instant updatedAt;
 
   public Adres getAdres() {

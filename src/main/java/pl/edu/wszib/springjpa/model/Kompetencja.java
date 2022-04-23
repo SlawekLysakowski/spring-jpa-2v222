@@ -1,17 +1,24 @@
 package pl.edu.wszib.springjpa.model;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.time.Instant;
 
+@Entity
+@Table
 public class Kompetencja {
-
+  @Id
+  @GeneratedValue
   private Integer id;
   private KompetencjaRodzaj rodzaj;
   private String nazwa;
   private Integer stopien;
   private Instant createdAt;
   private Instant updatedAt;
+
+  @ManyToOne
+  @JoinColumn
+  private CV cv;
+
 
   public Integer getId() {
     return id;

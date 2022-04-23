@@ -1,13 +1,24 @@
 package pl.edu.wszib.springjpa.model;
 
-import java.time.Instant;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.time.Instant;
+@Entity
+@Table
 public class Adres {
+  @Id
   private String ulica;
   private String kodPocztowy;
   private String miasto;
   private String kraj;
+  @CreationTimestamp
   private Instant createdAt;
+  @UpdateTimestamp
   private Instant updatedAt;
 
   public String getUlica() {

@@ -1,9 +1,15 @@
 package pl.edu.wszib.springjpa.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.List;
-
+@Entity
+@Table
 public class Student {
-
+  @Id
+  @GeneratedValue
   private Integer id;
   private String imie;
   private String nazwisko;

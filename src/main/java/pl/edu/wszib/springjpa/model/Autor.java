@@ -1,12 +1,17 @@
 package pl.edu.wszib.springjpa.model;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table
 public class Autor {
-
+  @Id
+  @GeneratedValue
   private Integer id;
   private String imie;
   private String nazwisko;
+  @ManyToMany(mappedBy = "autorzy")
   private List<Ksiazka> ksiazki;
 
   public Integer getId() {
